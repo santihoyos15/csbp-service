@@ -1,21 +1,16 @@
 package com.csbp.csbp.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
+@Table(name = "Empleados")
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String identificacion;
-    private String nombre;
-    private String primerApellido;
-    private String segundoApellido;
     private Date fechaNacimiento;
     private String email;
     private boolean active;
