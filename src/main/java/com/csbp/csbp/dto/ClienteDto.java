@@ -1,14 +1,8 @@
-package com.csbp.csbp.domain;
-
-import jakarta.persistence.*;
+package com.csbp.csbp.dto;
 
 import java.util.Date;
-import java.util.List;
 
-@Entity
-public class Cliente {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ClienteDto {
     private Long id;
     private String identificacion;
     private String nombre;
@@ -17,9 +11,6 @@ public class Cliente {
     private Date fechaNacimiento;
     private String email;
     private boolean active;
-
-    @OneToMany(mappedBy = "cliente")
-    private List<Venta> ventas;
 
     public Long getId() {
         return id;
@@ -83,13 +74,5 @@ public class Cliente {
 
     public void setActive(boolean active) {
         this.active = active;
-    }
-
-    public List<Venta> getVentas() {
-        return ventas;
-    }
-
-    public void setVentas(List<Venta> ventas) {
-        this.ventas = ventas;
     }
 }

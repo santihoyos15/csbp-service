@@ -1,11 +1,9 @@
 package com.csbp.csbp.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Empleado {
@@ -19,6 +17,8 @@ public class Empleado {
     private Date fechaNacimiento;
     private String email;
     private boolean active;
+    @OneToMany(mappedBy = "empleado")
+    private List<Venta> ventas;
 
     public Long getId() {
         return id;
@@ -82,5 +82,13 @@ public class Empleado {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public List<Venta> getVentas() {
+        return ventas;
+    }
+
+    public void setVentas(List<Venta> ventas) {
+        this.ventas = ventas;
     }
 }
