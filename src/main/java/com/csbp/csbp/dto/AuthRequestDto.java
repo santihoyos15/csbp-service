@@ -1,31 +1,30 @@
-package com.csbp.csbp.domain;
-
-import jakarta.persistence.*;
+package com.csbp.csbp.dto;
 
 import java.util.Date;
-import java.util.List;
 
-@Entity
-public class Empleado {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class AuthRequestDto {
+    private String email;
+    private String password;
     private String identificacion;
     private String nombre;
     private String primerApellido;
     private String segundoApellido;
     private Date fechaNacimiento;
-    private String email;
-    private boolean active;
-    @OneToMany(mappedBy = "empleado")
-    private List<Venta> ventas;
 
-    public Long getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getIdentificacion() {
@@ -66,29 +65,5 @@ public class Empleado {
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    public List<Venta> getVentas() {
-        return ventas;
-    }
-
-    public void setVentas(List<Venta> ventas) {
-        this.ventas = ventas;
     }
 }

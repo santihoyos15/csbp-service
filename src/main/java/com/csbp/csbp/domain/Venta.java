@@ -17,12 +17,12 @@ public class Venta {
     @ManyToOne
     @JoinColumn(name = "empleadoId")
     @JsonIgnore
-    private Empleado empleado;
+    private User empleado;
 
     @ManyToOne
     @JoinColumn(name = "clienteId")
     @JsonIgnore
-    private Cliente cliente;
+    private User cliente;
 
     @ManyToMany
     @JoinTable(
@@ -56,19 +56,19 @@ public class Venta {
         this.total = total;
     }
 
-    public Empleado getEmpleado() {
+    public User getEmpleado() {
         return empleado;
     }
 
-    public void setEmpleado(Empleado empleado) {
+    public void setEmpleado(User empleado) {
         this.empleado = empleado;
     }
 
-    public Cliente getCliente() {
+    public User getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(User cliente) {
         this.cliente = cliente;
     }
 

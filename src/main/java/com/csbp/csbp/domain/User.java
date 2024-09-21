@@ -1,16 +1,26 @@
-package com.csbp.csbp.dto;
+ package com.csbp.csbp.domain;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
-public class ClienteDto {
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String email;
+    @JsonIgnore
+    private String password;
+    private Integer role;
+    private boolean active;
     private String identificacion;
     private String nombre;
     private String primerApellido;
     private String segundoApellido;
     private Date fechaNacimiento;
-    private String email;
-    private boolean active;
 
     public Long getId() {
         return id;
@@ -18,6 +28,38 @@ public class ClienteDto {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public String getIdentificacion() {
@@ -58,21 +100,5 @@ public class ClienteDto {
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
     }
 }
