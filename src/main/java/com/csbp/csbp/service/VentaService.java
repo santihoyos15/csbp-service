@@ -2,6 +2,7 @@ package com.csbp.csbp.service;
 
 import com.csbp.csbp.dao.ProductoRepository;
 import com.csbp.csbp.dao.VentaRepository;
+import com.csbp.csbp.domain.Cliente;
 import com.csbp.csbp.domain.Producto;
 import com.csbp.csbp.domain.User;
 import com.csbp.csbp.domain.Venta;
@@ -18,6 +19,8 @@ public class VentaService {
     @Autowired
     private UserService userService;
     @Autowired
+    private ClienteService clienteService;
+    @Autowired
     private ProductoRepository productoRepository;
 
 
@@ -29,7 +32,7 @@ public class VentaService {
         User empleado = userService.findById(ventaDto.getEmpleadoId())
                 .orElseThrow(() -> new RuntimeException("Empleado no existe"));
 
-        User cliente = userService.findById(ventaDto.getClienteId())
+        Cliente cliente = clienteService.findById(ventaDto.getClienteId())
                 .orElseThrow(() -> new RuntimeException("Cliente no existe "));
 
         List<Producto> productos = (List<Producto>) productoRepository.findAllById(ventaDto.getProductos());

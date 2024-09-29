@@ -22,7 +22,7 @@ public class Venta {
     @ManyToOne
     @JoinColumn(name = "clienteId")
     @JsonIgnore
-    private User cliente;
+    private Cliente cliente;
 
     @ManyToMany
     @JoinTable(
@@ -64,11 +64,11 @@ public class Venta {
         this.empleado = empleado;
     }
 
-    public User getCliente() {
+    public Cliente getCliente() {
         return cliente;
     }
 
-    public void setCliente(User cliente) {
+    public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
 

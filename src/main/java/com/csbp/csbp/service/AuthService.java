@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
-
 @Service
 public class AuthService {
     @Autowired
@@ -33,7 +31,7 @@ public class AuthService {
         user.setSegundoApellido(authRequest.getSegundoApellido());
         user.setFechaNacimiento(authRequest.getFechaNacimiento());
         user.setActive(true);
-        user.setRole(RoleEnum.CLIENTE.getId());
+        user.setRole(RoleEnum.ADMIN.getId());
 
         userRepository.save(user);
         return "Registrado con exito";

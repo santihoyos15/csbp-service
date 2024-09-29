@@ -62,9 +62,9 @@ public class UserService {
     }
 
     public List<User> list(ListUsersDto listUsersDto) {
-        if (listUsersDto.getRoleId() != null) {
-            return userRepository.findAllByRole(listUsersDto.getRoleId());
-        }
+//        if (listUsersDto.getRoleId() != null) {
+//            return userRepository.findAllByRole(listUsersDto.getRoleId());
+//        }
 
         return (List<User>) userRepository.findAll();
     }
