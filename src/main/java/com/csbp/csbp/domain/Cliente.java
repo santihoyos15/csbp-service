@@ -1,8 +1,8 @@
 package com.csbp.csbp.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -10,15 +10,14 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String identificacion;
+    private String dni;
     private String nombre;
     private String primerApellido;
     private String segundoApellido;
-    private Date fechaNacimiento;
-    private String email;
     private boolean active;
 
     @OneToMany(mappedBy = "cliente")
+    @JsonIgnore
     private List<Venta> ventas;
 
     public Long getId() {
@@ -29,12 +28,12 @@ public class Cliente {
         this.id = id;
     }
 
-    public String getIdentificacion() {
-        return identificacion;
+    public String getDni() {
+        return dni;
     }
 
-    public void setIdentificacion(String identificacion) {
-        this.identificacion = identificacion;
+    public void setDni(String identificacion) {
+        this.dni = identificacion;
     }
 
     public String getNombre() {
@@ -59,22 +58,6 @@ public class Cliente {
 
     public void setSegundoApellido(String segundoApellido) {
         this.segundoApellido = segundoApellido;
-    }
-
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public boolean isActive() {

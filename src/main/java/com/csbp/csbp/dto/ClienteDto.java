@@ -1,14 +1,11 @@
 package com.csbp.csbp.dto;
 
-import java.util.Date;
 public class ClienteDto {
     private Long id;
-    private String identificacion;
+    private String dni;
     private String nombre;
     private String primerApellido;
     private String segundoApellido;
-    private Date fechaNacimiento;
-    private String email;
     private boolean active;
 
     public Long getId() {
@@ -17,11 +14,11 @@ public class ClienteDto {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getIdentificacion() {
-        return identificacion;
+    public String getDni() {
+        return dni;
     }
-    public void setIdentificacion(String identificacion) {
-        this.identificacion = identificacion;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
     public String getNombre() {
         return nombre;
@@ -40,18 +37,6 @@ public class ClienteDto {
     }
     public void setSegundoApellido(String segundoApellido) {
         this.segundoApellido = segundoApellido;
-    }
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
     }
     public boolean isActive() {
         return active;

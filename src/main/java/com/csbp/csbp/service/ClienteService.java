@@ -23,12 +23,10 @@ public class ClienteService {
     public Cliente save(ClienteDto clienteDto) {
         var cliente = new Cliente();
         cliente.setNombre(clienteDto.getNombre());
-        cliente.setIdentificacion(clienteDto.getIdentificacion());
+        cliente.setDni(clienteDto.getDni());
         cliente.setNombre(clienteDto.getNombre());
         cliente.setPrimerApellido(clienteDto.getPrimerApellido());
         cliente.setSegundoApellido(clienteDto.getSegundoApellido());
-        cliente.setFechaNacimiento(clienteDto.getFechaNacimiento());
-        cliente.setEmail(clienteDto.getEmail());
         cliente.setActive(clienteDto.isActive());
 
         return clienteRepository.save(cliente);
@@ -44,12 +42,10 @@ public class ClienteService {
         var cliente = clienteOptional.get();
 
         cliente.setNombre(clienteDto.getNombre());
-        cliente.setIdentificacion(clienteDto.getIdentificacion());
+        cliente.setDni(clienteDto.getDni());
         cliente.setNombre(clienteDto.getNombre());
         cliente.setPrimerApellido(clienteDto.getPrimerApellido());
         cliente.setSegundoApellido(clienteDto.getSegundoApellido());
-        cliente.setFechaNacimiento(clienteDto.getFechaNacimiento());
-        cliente.setEmail(clienteDto.getEmail());
         cliente.setActive(clienteDto.isActive());
 
         return clienteRepository.save(cliente);
