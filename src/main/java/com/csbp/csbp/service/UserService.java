@@ -3,7 +3,6 @@ package com.csbp.csbp.service;
 import com.csbp.csbp.dao.UserRepository;
 import com.csbp.csbp.domain.User;
 import com.csbp.csbp.dto.AuthRequestDto;
-import com.csbp.csbp.dto.ListUsersDto;
 import com.csbp.csbp.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -61,11 +60,7 @@ public class UserService {
         return empleadoOptional.get();
     }
 
-    public List<User> list(ListUsersDto listUsersDto) {
-//        if (listUsersDto.getRoleId() != null) {
-//            return userRepository.findAllByRole(listUsersDto.getRoleId());
-//        }
-
+    public List<User> list() {
         return (List<User>) userRepository.findAll();
     }
 

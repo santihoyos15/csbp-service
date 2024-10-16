@@ -2,7 +2,6 @@ package com.csbp.csbp.controller;
 
 import com.csbp.csbp.domain.User;
 import com.csbp.csbp.dto.AuthRequestDto;
-import com.csbp.csbp.dto.ListUsersDto;
 import com.csbp.csbp.dto.UserDto;
 import com.csbp.csbp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +19,8 @@ public class UserController {
 
     @GetMapping("/list")
     @ResponseBody
-    public List<User> list(@RequestBody ListUsersDto listUsersDto) {
-        return userService.list(listUsersDto);
+    public List<User> list() {
+        return userService.list();
     }
 
     @PostMapping()

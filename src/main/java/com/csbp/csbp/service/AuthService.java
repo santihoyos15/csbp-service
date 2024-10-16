@@ -1,7 +1,6 @@
 package com.csbp.csbp.service;
 
 import com.csbp.csbp.dao.UserRepository;
-import com.csbp.csbp.domain.RoleEnum;
 import com.csbp.csbp.domain.User;
 import com.csbp.csbp.dto.AuthRequestDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,6 @@ public class AuthService {
         user.setSegundoApellido(authRequest.getSegundoApellido());
         user.setFechaNacimiento(authRequest.getFechaNacimiento());
         user.setActive(true);
-        user.setRole(RoleEnum.ADMIN.getId());
 
         userRepository.save(user);
         return "Registrado con exito";

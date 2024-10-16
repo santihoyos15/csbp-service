@@ -14,7 +14,6 @@ public class User {
     private String email;
     @JsonIgnore
     private String password;
-    private Integer role;
     private boolean active;
     private String identificacion;
     private String nombre;
@@ -44,14 +43,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Integer getRole() {
-        return role;
-    }
-
-    public void setRole(Integer role) {
-        this.role = role;
     }
 
     public boolean isActive() {
