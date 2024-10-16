@@ -24,7 +24,7 @@ public class AuthService {
         User user = new User();
         user.setEmail(authRequest.getEmail());
         user.setPassword(passwordEncoder.encode(authRequest.getPassword()));
-        user.setIdentificacion(authRequest.getIdentificacion());
+        user.setDni(authRequest.getDni());
         user.setNombre(authRequest.getNombre());
         user.setPrimerApellido(authRequest.getPrimerApellido());
         user.setSegundoApellido(authRequest.getSegundoApellido());

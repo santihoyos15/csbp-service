@@ -37,7 +37,7 @@ public class UserService {
         var user = userOptional.get();
 
         user.setNombre(userDto.getNombre());
-        user.setIdentificacion(userDto.getIdentificacion());
+        user.setDni(userDto.getIdentificacion());
         user.setNombre(userDto.getNombre());
         user.setPrimerApellido(userDto.getPrimerApellido());
         user.setSegundoApellido(userDto.getSegundoApellido());

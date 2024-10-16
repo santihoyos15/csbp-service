@@ -5,7 +5,7 @@ import java.util.Date;
 public class AuthRequestDto {
     private String email;
     private String password;
-    private String identificacion;
+    private String dni;
     private String nombre;
     private String primerApellido;
     private String segundoApellido;
@@ -27,12 +27,12 @@ public class AuthRequestDto {
         this.password = password;
     }
 
-    public String getIdentificacion() {
-        return identificacion;
+    public String getDni() {
+        return dni;
     }
 
-    public void setIdentificacion(String identificacion) {
-        this.identificacion = identificacion;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 
     public String getNombre() {
