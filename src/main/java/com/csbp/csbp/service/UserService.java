@@ -23,8 +23,18 @@ public class UserService {
         return (List<User>) userRepository.findAll();
     }
 
-    public String save(AuthRequestDto userDto) {
-        return authService.registerUser(userDto);
+    public String save(UserDto userDto) {
+        var user = new User();
+        user.setDni(userDto.getDni());
+        user.setNombre(userDto.getNombre());
+        user.setPrimerApellido(userDto.getPrimerApellido());
+        user.setSegundoApellido(userDto.getSegundoApellido());
+        user.setEmail(userDto.getEmail());
+        user.setActive(userDto.isActive());
+
+        userRepository.save(user);
+
+        return "Usuario guardado con exito";
     }
 
     public User edit(UserDto userDto) {
@@ -37,11 +47,10 @@ public class UserService {
         var user = userOptional.get();
 
         user.setNombre(userDto.getNombre());
-        user.setDni(userDto.getIdentificacion());
+        user.setDni(userDto.getDni());
         user.setNombre(userDto.getNombre());
         user.setPrimerApellido(userDto.getPrimerApellido());
         user.setSegundoApellido(userDto.getSegundoApellido());
-        user.setFechaNacimiento(userDto.getFechaNacimiento());
         user.setEmail(userDto.getEmail());
         user.setActive(userDto.isActive());
 

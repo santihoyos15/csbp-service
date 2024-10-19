@@ -2,9 +2,6 @@ package com.csbp.csbp.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.hibernate.annotations.Formula;
-
-import java.util.Date;
 
 @Entity
 public class User {
@@ -16,11 +13,8 @@ public class User {
     private String primerApellido;
     private String segundoApellido;
     private String email;
-    @Formula("year(NOW()) - year(fechaNacimiento) - (CONCAT(day(fechaNacimiento), '-', month(fechaNacimiento), '-', year(NOW())) > NOW())")
-    private Integer edad;
-    @JsonIgnore
-    private Date fechaNacimiento;
     private boolean active;
+    private boolean isAdmin;
     @JsonIgnore
     private String password;
 
@@ -72,14 +66,6 @@ public class User {
         this.email = email;
     }
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
     public boolean isActive() {
         return active;
     }
@@ -96,11 +82,11 @@ public class User {
         this.password = password;
     }
 
-    public Integer getEdad() {
-        return edad;
+    public boolean isAdmin() {
+        return isAdmin;
     }
 
-    public void setEdad(Integer edad) {
-        this.edad = edad;
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }

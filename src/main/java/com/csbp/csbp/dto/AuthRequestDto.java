@@ -9,7 +9,6 @@ public class AuthRequestDto {
     private String nombre;
     private String primerApellido;
     private String segundoApellido;
-    private Date fechaNacimiento;
 
     public String getEmail() {
         return email;
@@ -59,11 +58,4 @@ public class AuthRequestDto {
         this.segundoApellido = segundoApellido;
     }
 
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
 }

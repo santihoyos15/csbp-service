@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @PostMapping()
-    public String create(@RequestBody AuthRequestDto authRequestDto) {
+    public String create(@RequestBody UserDto authRequestDto) {
         return userService.save(authRequestDto);
     }
 
@@ -37,7 +37,8 @@ public class UserController {
 
     @DeleteMapping("/{userId}")
     @ResponseBody
-    public User delete(@PathVariable Long userId, @RequestBody UserDto userDto) {
+    public User delete(@PathVariable Long userId) {
+        var userDto = new UserDto();
         userDto.setId(userId);
         return userService.delete(userDto);
     }

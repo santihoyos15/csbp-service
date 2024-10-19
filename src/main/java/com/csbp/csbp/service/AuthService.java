@@ -14,11 +14,17 @@ public class AuthService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public String registerUser(AuthRequestDto authRequest) {
-        User potentialPresentUser = userRepository.findByEmail(authRequest.getEmail());
+    public User registerUser(AuthRequestDto authRequest) {
+        User userByEmail = userRepository.findByEmail(authRequest.getEmail());
 
-        if (potentialPresentUser != null) {
+        if (userByEmail != null) {
             throw new RuntimeException("Correo en uso");
+        }
+
+        User userByDni = userRepository.findByDni(authRequest.getDni());
+
+        if (userByDni != null) {
+            throw new RuntimeException("DNI en uso");
         }
 
         User user = new User();
@@ -28,11 +34,9 @@ public class AuthService {
         user.setNombre(authRequest.getNombre());
         user.setPrimerApellido(authRequest.getPrimerApellido());
         user.setSegundoApellido(authRequest.getSegundoApellido());
-        user.setFechaNacimiento(authRequest.getFechaNacimiento());
         user.setActive(true);
 
-        userRepository.save(user);
-        return "Registrado con exito";
+        return userRepository.save(user);
     }
 
     public User login(AuthRequestDto authRequest) {
@@ -40,6 +44,7 @@ public class AuthService {
         if (user != null && passwordEncoder.matches(authRequest.getPassword(), user.getPassword())) {
             return user;
         }
+
         throw new RuntimeException("Credenciales invalidas");
     }
 }
