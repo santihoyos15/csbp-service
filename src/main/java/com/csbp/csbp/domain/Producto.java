@@ -15,11 +15,9 @@ public class Producto {
     private Double costo;
     private Integer cantidad;
     private boolean activo;
-
-
-    @ManyToMany(mappedBy = "productos")
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Venta> ventas;
+    private List<VentaProducto> ventaProductos;
 
     public Long getId() {
         return id;
@@ -69,12 +67,11 @@ public class Producto {
         this.activo = activo;
     }
 
-    public List<Venta> getVentas() {
-        return ventas;
+    public List<VentaProducto> getVentaProductos() {
+        return ventaProductos;
     }
 
-    public void setVentas(List<Venta> ventas) {
-        this.ventas = ventas;
+    public void setVentaProductos(List<VentaProducto> ventaProductos) {
+        this.ventaProductos = ventaProductos;
     }
-
 }

@@ -8,7 +8,7 @@ public class VentaDto {
     private Date fecha;
     private Long clienteId;
     private Long empleadoId;
-    private List<Long> productos;
+    private List<ProductoDto> productos;
 
     public Long getId() {
         return id;
@@ -42,11 +42,11 @@ public class VentaDto {
         this.empleadoId = empleadoId;
     }
 
-    public List<Long> getProductos() {
+    public List<ProductoDto> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<Long> productos) {
+    public void setProductos(List<ProductoDto> productos) {
         this.productos = productos;
     }
 }

@@ -1,6 +1,5 @@
 package com.csbp.csbp.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -8,29 +7,25 @@ import java.util.List;
 
 @Entity
 public class Venta {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date fecha;
-    private Double total;
 
-    @ManyToOne
-    @JoinColumn(name = "empleadoId")
-    @JsonIgnore
-    private User empleado;
+    private Date fecha;
+
+    private double total;
 
     @ManyToOne
     @JoinColumn(name = "clienteId")
-    @JsonIgnore
     private Cliente cliente;
 
-    @ManyToMany
-    @JoinTable(
-        name = "ventaProducto",
-        joinColumns = @JoinColumn(name = "ventaId"),
-        inverseJoinColumns = @JoinColumn(name = "productoId")
-    )
-    private List<Producto> productos;
+    @ManyToOne
+    @JoinColumn(name = "empleadoId")
+    private User empleado;
+
+    @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL)
+    private List<VentaProducto> ventaProductos;
 
     public Long getId() {
         return id;
@@ -48,20 +43,12 @@ public class Venta {
         this.fecha = fecha;
     }
 
-    public Double getTotal() {
+    public double getTotal() {
         return total;
     }
 
-    public void setTotal(Double total) {
+    public void setTotal(double total) {
         this.total = total;
-    }
-
-    public User getEmpleado() {
-        return empleado;
-    }
-
-    public void setEmpleado(User empleado) {
-        this.empleado = empleado;
     }
 
     public Cliente getCliente() {
@@ -72,11 +59,19 @@ public class Venta {
         this.cliente = cliente;
     }
 
-    public List<Producto> getProductos() {
-        return productos;
+    public User getEmpleado() {
+        return empleado;
     }
 
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
+    public void setEmpleado(User empleado) {
+        this.empleado = empleado;
+    }
+
+    public List<VentaProducto> getVentaProductos() {
+        return ventaProductos;
+    }
+
+    public void setVentaProductos(List<VentaProducto> ventaProductos) {
+        this.ventaProductos = ventaProductos;
     }
 }
