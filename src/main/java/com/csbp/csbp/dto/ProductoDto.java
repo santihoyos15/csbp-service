@@ -6,6 +6,7 @@ public class ProductoDto {
     private String marca;
     private Double costo;
     private Integer cantidad;
+    private String imagen;
     private boolean activo;
 
     public Long getId() {
@@ -46,6 +47,14 @@ public class ProductoDto {
 
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public void setImagen(String imagen){
+        this.imagen = imagen;
+    }
+
+    public String getImagen(){
+        return this.imagen;
     }
 
     public boolean isActivo() {

@@ -25,6 +25,7 @@ public class ProductoService {
         producto.setMarca(productoDto.getMarca());
         producto.setCosto(productoDto.getCosto());
         producto.setCantidad(productoDto.getCantidad());
+        producto.setImagen(productoDto.getImagen());
         producto.setActivo(productoDto.isActivo());
 
         return productoRepository.save(producto);
@@ -43,6 +44,7 @@ public class ProductoService {
         producto.setMarca(productoDto.getMarca());
         producto.setCosto(productoDto.getCosto());
         producto.setCantidad(productoDto.getCantidad());
+        producto.setImagen(productoDto.getImagen());
         producto.setActivo(productoDto.isActivo());
 
         return productoRepository.save(producto);

@@ -14,6 +14,7 @@ public class Producto {
     private String marca;
     private Double costo;
     private Integer cantidad;
+    private String imagen;
     private boolean activo;
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
     @JsonIgnore
@@ -59,6 +60,13 @@ public class Producto {
         this.cantidad = cantidad;
     }
 
+    public void setImagen(String imagen){
+        this.imagen = imagen;
+    }
+
+    public String getImagen(){
+        return this.imagen;
+    }
     public boolean isActivo() {
         return activo;
     }
