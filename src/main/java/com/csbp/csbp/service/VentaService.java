@@ -52,7 +52,7 @@ public class VentaService {
         venta.setCliente(cliente);
         venta.setFecha(new Date());
         venta.setVentaProductos(new ArrayList<>());
-        venta.setCodigo("" + empleado.getId() + lastVentaId);
+        venta.setCodigo(empleado.getId() + "" + (lastVentaId + 1));
 
         double total = 0;
         for (ProductoDto productoDto : ventaDto.getProductos()) {

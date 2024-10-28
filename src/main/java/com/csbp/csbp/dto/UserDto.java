@@ -11,6 +11,7 @@ public class UserDto {
     private Date fechaNacimiento;
     private String email;
     private boolean active;
+    private boolean admin;
 
     public Long getId() {
         return id;
@@ -74,5 +75,13 @@ public class UserDto {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 }

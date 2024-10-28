@@ -1,7 +1,7 @@
 package com.csbp.csbp.controller;
 
 import com.csbp.csbp.domain.User;
-import com.csbp.csbp.dto.AuthRequestDto;
+import com.csbp.csbp.dto.ApiResponse;
 import com.csbp.csbp.dto.UserDto;
 import com.csbp.csbp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +24,14 @@ public class UserController {
     }
 
     @PostMapping()
-    public String create(@RequestBody UserDto authRequestDto) {
+    @ResponseBody
+    public ApiResponse create(@RequestBody UserDto authRequestDto) {
         return userService.save(authRequestDto);
     }
 
     @PutMapping("/{userId}")
     @ResponseBody
-    public User edit(@PathVariable Long userId, @RequestBody UserDto userDto) {
+    public ApiResponse edit(@PathVariable Long userId, @RequestBody UserDto userDto) {
         userDto.setId(userId);
         return userService.edit(userDto);
     }

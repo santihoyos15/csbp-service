@@ -1,6 +1,7 @@
 package com.csbp.csbp.controller;
 
 import com.csbp.csbp.domain.User;
+import com.csbp.csbp.dto.ApiResponse;
 import com.csbp.csbp.dto.AuthRequestDto;
 import com.csbp.csbp.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,8 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/register")
-    public User register(@RequestBody AuthRequestDto authRequest) {
+    @ResponseBody
+    public ApiResponse register(@RequestBody AuthRequestDto authRequest) {
         return authService.registerUser(authRequest);
     }
 

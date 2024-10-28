@@ -2,6 +2,7 @@ package com.csbp.csbp.service;
 
 import com.csbp.csbp.dao.UserRepository;
 import com.csbp.csbp.domain.User;
+import com.csbp.csbp.dto.ApiResponse;
 import com.csbp.csbp.dto.AuthRequestDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,17 +15,17 @@ public class AuthService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public User registerUser(AuthRequestDto authRequest) {
+    public ApiResponse registerUser(AuthRequestDto authRequest) {
         User userByEmail = userRepository.findByEmail(authRequest.getEmail());
 
         if (userByEmail != null) {
-            throw new RuntimeException("Correo en uso");
+            return new ApiResponse(false, "Correo en uso");
         }
 
         User userByDni = userRepository.findByDni(authRequest.getDni());
 
         if (userByDni != null) {
-            throw new RuntimeException("DNI en uso");
+            return new ApiResponse(false, "DNI en uso");
         }
 
         User user = new User();
@@ -35,8 +36,9 @@ public class AuthService {
         user.setPrimerApellido(authRequest.getPrimerApellido());
         user.setSegundoApellido(authRequest.getSegundoApellido());
         user.setActive(true);
+        user.setAdmin(false);
 
-        return userRepository.save(user);
+        return new ApiResponse(true, "Usuario registrado con exito");
     }
 
     public User login(AuthRequestDto authRequest) {
