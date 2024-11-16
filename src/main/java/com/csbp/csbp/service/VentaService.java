@@ -67,6 +67,9 @@ public class VentaService {
             venta.getVentaProductos().add(ventaProducto);
 
             total += producto.getCosto() * productoDto.getCantidad();
+
+            producto.setCantidad(producto.getCantidad() - productoDto.getCantidad());
+            productoRepository.save(producto);
         }
 
         venta.setTotal(total);
@@ -84,7 +87,9 @@ public class VentaService {
 
         var response = new VentaDetalleResponseDto();
 
-        response.setCliente(venta.getCliente().getNombre() + venta.getCliente().getNombre() + venta.getCliente().getSegundoApellido());
+        String nombreCliente = venta.getCliente().getNombre() + " " + venta.getCliente().getPrimerApellido() + " " + venta.getCliente().getSegundoApellido();
+
+        response.setCliente(nombreCliente);
 
         List<VentaProducto> ventaProductos = venta.getVentaProductos();
 

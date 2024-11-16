@@ -17,10 +17,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> getAll() {
-        return (List<User>) userRepository.findAll();
-    }
-
     public ApiResponse save(UserDto userDto) {
         User userByDni = userRepository.findByDni(userDto.getDni());
 
@@ -42,6 +38,7 @@ public class UserService {
         user.setEmail(userDto.getEmail());
         user.setActive(userDto.isActive());
         user.setAdmin(userDto.isAdmin());
+        user.setPassword("$2a$10$sABnDPMBFWYOYJsZGiLPye4yHZ4vPJ8xcf3NZt6RafR6.J3wgbIFe");
 
         userRepository.save(user);
 

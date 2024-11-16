@@ -38,6 +38,8 @@ public class AuthService {
         user.setActive(true);
         user.setAdmin(false);
 
+        userRepository.save(user);
+
         return new ApiResponse(true, "Usuario registrado con exito");
     }
 
